@@ -1,0 +1,73 @@
+/* ===== DARK SHADOW PICTURES - shared styles ===== */
+:root{
+  --bg:#08090c; --panel:#12141a; --text:#ece8e1; --muted:#9a9ca3; --accent:#b3263b; --line:#262932;
+  /* EDIT: change colours above to restyle the whole site */
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Source Sans 3',Arial,sans-serif;line-height:1.65;font-size:18px}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;letter-spacing:.03em;line-height:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Header */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:18px 4vw;background:linear-gradient(#08090cd9,transparent)}
+.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.7rem;letter-spacing:.06em}
+.logo img{height:40px} /* EDIT: if you use a logo image, style it here */
+nav a{margin-left:28px;font-size:1rem;padding-bottom:4px;border-bottom:2px solid transparent}
+nav a:hover,nav a.active{border-color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);padding:6px 12px;font-size:1rem;cursor:pointer}
+
+/* Hero (home page) */
+.hero{position:relative;height:100vh;min-height:520px;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 2%,transparent 55%),linear-gradient(to right,#08090c99,transparent 60%)}
+.hero-text{position:relative;z-index:2;padding:0 4vw 9vh}
+.hero h1{font-size:clamp(3.5rem,13vw,11rem)}
+.hero p{max-width:34ch;margin-top:14px;color:var(--muted);font-size:1.2rem}
+
+/* Page banner (about / articles) */
+.page-banner{position:relative;padding:170px 4vw 70px;background:var(--panel) center/cover no-repeat;border-bottom:1px solid var(--line)}
+/* EDIT: for a banner image add:  style="background-image:url('images/banner.jpg')"  on the .page-banner element */
+.page-banner h1{font-size:clamp(3rem,9vw,7rem)}
+.page-banner::after{content:"";position:absolute;inset:0;background:linear-gradient(#08090c66,var(--bg))}
+.page-banner>*{position:relative;z-index:2}
+
+/* Sections */
+section{padding:80px 4vw}
+.section-title{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:30px}
+.card{background:var(--panel);border-radius:4px;overflow:hidden;transition:transform .2s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#1b1e26}
+.card-body{padding:20px 22px 26px}
+.card h3{font-size:1.7rem;margin:6px 0 10px}
+.card .date{color:var(--accent);font-size:.9rem}
+.card p{color:var(--muted);font-size:1rem}
+.read{display:inline-block;margin-top:14px;border-bottom:2px solid var(--accent)}
+
+/* Videos */
+.video-wrap{position:relative;aspect-ratio:16/9;background:#000}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* About */
+.about{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:start}
+.about p{margin-bottom:18px;max-width:62ch}
+.team{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:26px}
+.member img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#1b1e26;margin-bottom:12px}
+.member h3{font-size:1.5rem}
+.member span{color:var(--muted);font-size:.95rem}
+
+/* Footer */
+footer{padding:50px 4vw;border-top:1px solid var(--line);color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:.95rem}
+footer a:hover{color:var(--text)}
+
+@media(max-width:760px){
+  .menu-btn{display:block}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:10px 4vw 20px}
+  nav.open{display:block}
+  nav a{display:block;margin:14px 0}
+  .about{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
